@@ -12,7 +12,7 @@ import ThemeToggleBlock from '../components/ThemeToggleBlock';
 import ProfileCard from '../components/ProfileCard';
 import SiteDashboard from '../components/SiteDashboard';
 import { albums } from '../data/albums';
-import LyricBar from '../components/LyricBar';
+import MusicCard,{LyricBar} from '../components/music/Player';
 import { ToastProvider } from '../components/ToastProvider';
 
 import LatestPostsCarousel from '../components/LatestPostsCarousel';
@@ -107,11 +107,12 @@ export default function Home() {
                 </div>
                 {/* 手机上占满1列，电脑上占5列 */}
                 <div className="col-span-1 lg:col-span-5 flex flex-col">
-                    <WallpaperControls/>
+                    <MusicCard/>
                 </div>
               </div>
 
               {/* 歌词栏 */}
+              <LyricBar/>
               
 
               {/* 第二行：文章轮播 + 照片墙 + 说说 + 主题切换 */}
@@ -149,6 +150,7 @@ export default function Home() {
                 </div>
               </div>
 
+              <WallpaperControls/>
               {/* 底部数据面板 */}
               <div className="w-full mt-4"><SiteDashboard/></div>
             </main>
