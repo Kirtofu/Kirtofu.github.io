@@ -1,0 +1,2 @@
+import Link from 'next/link';
+export default function NotFound(){return <main className="max-w-lg mx-auto my-32 p-10 text-center rounded-3xl bg-white/85 dark:bg-slate-900/85"><p className="text-indigo-500 text-6xl mb-6">404</p><h1 className="text-2xl font-bold mb-4">这条小路还没有留下足迹</h1><p className="mb-8">页面可能已移动，回到首页看看吧。</p><Link href="/" className="px-6 py-3 rounded-xl bg-indigo-600 text-white">回到小窝</Link></main>;}
