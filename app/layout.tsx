@@ -1,5 +1,7 @@
 import 'katex/dist/katex.min.css';
 import type {Metadata} from 'next';
+import Link from 'next/link';
+import PlaylistDock from '../components/PlaylistDock';
 import '@fontsource-variable/noto-serif-sc';
 import './globals.css';
 import {ThemeProvider} from '../components/ThemeProvider';
@@ -20,7 +22,7 @@ export default function RootLayout({children}:{children:React.ReactNode}){
   <div className="absolute inset-0 wallpaper-overlay" style={{backdropFilter:`blur(${siteConfig.backgroundBlur}px)`,opacity:siteConfig.backgroundOverlayOpacity/100}}/>
   <div className="hidden md:block ambient-effects"><BackgroundEffects/></div>
  </div>
- <div className="relative z-10 min-h-screen">{children}<footer className="text-center px-5 py-6 text-sm text-slate-700 dark:text-slate-300 bg-white/35 dark:bg-slate-950/35 backdrop-blur-md">© {new Date().getFullYear()} cormid · 基于 <a href="https://github.com/heiehiehi/XinghuisamaBlogs" target="_blank" rel="noreferrer" className="underline underline-offset-4">XHBlogs</a> · CC BY-NC 4.0</footer></div>
- <CyberCat/><SplashScreen/>
+ <div className="relative z-10 min-h-screen">{children}<footer className="text-center px-5 py-6 text-sm text-slate-700 dark:text-slate-300 bg-white/35 dark:bg-slate-950/35 backdrop-blur-md">© {new Date().getFullYear()} cormid · <Link href="/credits/" className="underline underline-offset-4">许可说明</Link></footer></div>
+ <CyberCat/><PlaylistDock/><SplashScreen/>
  </ToastProvider></WallpaperProvider></ThemeProvider></body></html>;
 }

@@ -7,7 +7,3 @@
 ## 找到我
 
 [GitHub · Kirtofu](https://github.com/Kirtofu)
-
-## 关于这个网站
-
-本站基于 [XingHuiSama 的 XHBlogs](https://github.com/heiehiehi/XinghuisamaBlogs) 定制，使用 GitHub Pages 托管。感谢原作者分享，项目采用 CC BY-NC 4.0 许可。
