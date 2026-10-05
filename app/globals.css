@@ -111,3 +111,5 @@ button:disabled { opacity:.5; cursor:not-allowed; }
 @keyframes cormid-cat-idle{0%,33%{background-position:0 0}34%,66%{background-position:50% 0}67%,100%{background-position:100% 0}}
 
 :root { --font-serif: "Noto Serif SC Variable", "Noto Serif SC", serif; }
+
+@media(prefers-reduced-motion:reduce){.cormid-splash{display:none!important}}

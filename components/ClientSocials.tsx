@@ -33,7 +33,7 @@ function SocialBtn({ type, url, onClick }: { type: string, url?: string, onClick
 export default function ClientSocials() {
   const copyToClipboard = (text: string, label: string) => {
     navigator.clipboard.writeText(text);
-    alert(`✨ ${label}已复制到剪贴板: ${text}`);
+    alert(` ${label}已复制到剪贴板: ${text}`);
   };
 
   return (

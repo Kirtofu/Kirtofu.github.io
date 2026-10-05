@@ -5,7 +5,7 @@ import Navbar from '../../components/Navbar';
 import PageTransition from '../../components/PageTransition';
 import { siteConfig } from '../../siteConfig';
 import TimelineClient from '../../components/TimelineClient';
-// 🌟 1. 引入 ToastProvider 喵！
+//  1. 引入 ToastProvider 喵！
 import { ToastProvider } from '../../components/ToastProvider';
 
 export const metadata = {
@@ -58,7 +58,7 @@ export default function Timeline() {
     .sort((a, b) => b.count - a.count);
 
   return (
-    // 🌟 2. 在最外层用 ToastProvider 包裹整个页面
+    //  2. 在最外层用 ToastProvider 包裹整个页面
     <ToastProvider>
       <div className="min-h-screen relative pb-32">
         <Navbar />

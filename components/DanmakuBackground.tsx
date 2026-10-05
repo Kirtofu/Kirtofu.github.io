@@ -36,7 +36,7 @@ export default function DanmakuBackground() {
   }, []);
 
   return (
-    // 🌟 终极限制：去掉了 bottom-0，换成了 h-[30vh] 强制锁死容器高度！
+    //  终极限制：去掉了 bottom-0，换成了 h-[30vh] 强制锁死容器高度！
     // 并且加上 z-0 确保它在卡片矩阵的后面
     <div className="fixed top-28 h-[30vh] left-0 right-0 overflow-hidden pointer-events-none z-0">
       {danmakus.map((item) => (

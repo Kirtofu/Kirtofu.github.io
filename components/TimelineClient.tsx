@@ -12,14 +12,14 @@ export default function TimelineClient({ posts: initialPosts, tags }: { posts: a
   const [searchQuery, setSearchQuery] = useState("");
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
-  // 🌟 默认视图模式 ('timeline' | 'card')
+  //  默认视图模式 ('timeline' | 'card')
   const [viewMode, setViewMode] = useState<'timeline' | 'card'>('timeline');
   const [showScrollTop, setShowScrollTop] = useState(false);
 
   const searchContainerRef = useRef<HTMLDivElement>(null);
   const gridScrollRef = useRef<HTMLDivElement>(null);
 
-  // 🌟 核心魔法 1：强制移动端为矩阵模式
+  //  核心魔法 1：强制移动端为矩阵模式
   useEffect(() => {
     const enforceMobileView = () => {
       if (window.innerWidth < 768) {
@@ -135,7 +135,7 @@ export default function TimelineClient({ posts: initialPosts, tags }: { posts: a
                   </div>
                 ) : (
                   <div className="px-6 py-8 text-center text-slate-500 dark:text-slate-400 text-sm font-medium">
-                    赛博空间里找不到这个印记 🌌
+                    赛博空间里找不到这个印记 
                   </div>
                 )}
               </motion.div>
@@ -155,7 +155,7 @@ export default function TimelineClient({ posts: initialPosts, tags }: { posts: a
             ))}
           </div>
 
-          {/* 🌟 核心魔法 2：隐藏手机端的视图切换按钮 (hidden md:flex) */}
+          {/*  核心魔法 2：隐藏手机端的视图切换按钮 (hidden md:flex) */}
           <div className="hidden md:flex bg-white/50 dark:bg-slate-900/50 p-1 rounded-2xl shadow-inner shrink-0">
             <button onClick={() => setViewMode('timeline')} className={`flex items-center gap-2 px-4 py-2 rounded-xl font-bold text-sm transition-all duration-300 ${viewMode === 'timeline' ? 'bg-white dark:bg-slate-700 text-indigo-500 shadow-sm' : 'text-slate-500 hover:text-slate-700 dark:hover:text-slate-300'}`}>
               <ListTree size={16} />
@@ -194,24 +194,24 @@ export default function TimelineClient({ posts: initialPosts, tags }: { posts: a
               onScroll={handleGridScroll}
               className="h-[75vh] overflow-y-auto cyber-scrollbar pr-2 sm:pr-5 pb-10 fade-edges"
             >
-              {/* 🌟 核心魔法 3：强制手机端 grid-cols-2 双列显示，减小 gap */}
+              {/*  核心魔法 3：强制手机端 grid-cols-2 双列显示，减小 gap */}
               <div className="grid grid-cols-2 lg:grid-cols-3 gap-3 md:gap-6 pt-4 pb-10">
                 {timelinePosts.map((post, idx) => (
                   <motion.div key={post.slug} initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.3, delay: idx * 0.05 }}>
                     <div className="bg-white/60 dark:bg-slate-800/70 backdrop-blur-xl border border-white/50 dark:border-slate-700/50 rounded-2xl md:rounded-3xl overflow-hidden shadow-lg flex flex-col h-full group relative hover:-translate-y-1 transition-transform duration-300">
 
                       <Link href={`/posts/${post.slug}`} className="block flex-1 flex flex-col cursor-pointer">
-                        {/* 🌟 图片高度自适应：手机变矮，电脑变高 */}
+                        {/*  图片高度自适应：手机变矮，电脑变高 */}
                         <div className="relative h-28 sm:h-36 md:h-40 overflow-hidden">
                           <img src={post.cover} alt={post.title} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
                           <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
-                          {/* 🌟 日期标签微缩 */}
+                          {/*  日期标签微缩 */}
                           <span className="absolute bottom-2 left-2 md:bottom-3 md:left-4 text-white/90 text-[9px] md:text-xs font-mono font-bold bg-black/40 backdrop-blur-sm px-1.5 py-0.5 md:px-2 md:py-1 rounded flex items-center gap-1">
                             <Calendar size={10} className="md:w-3 md:h-3"/> {post.date.split(' ')[0]}
                           </span>
                         </div>
 
-                        {/* 🌟 文本边距和字号全方位缩放 */}
+                        {/*  文本边距和字号全方位缩放 */}
                         <div className="p-3 md:p-5 flex-1 flex flex-col">
                           <h3 className="text-xs sm:text-sm md:text-lg font-bold text-slate-800 dark:text-slate-100 mb-1 md:mb-2 line-clamp-2 transition-colors group-hover:text-indigo-500">{post.title}</h3>
                           <p className="text-[10px] sm:text-xs md:text-sm text-slate-500 dark:text-slate-400 mb-2 md:mb-4 line-clamp-2 flex-1 leading-snug">{post.description || "暂时没有描述喵..."}</p>
@@ -273,7 +273,7 @@ export default function TimelineClient({ posts: initialPosts, tags }: { posts: a
 
               {timelinePosts.length === 0 && (
                  <div className="text-center py-20 text-slate-500 dark:text-slate-400 font-bold uppercase tracking-widest text-sm">
-                    这个频段没有接收到任何信号 📡
+                    这个频段没有接收到任何信号 
                  </div>
               )}
             </div>

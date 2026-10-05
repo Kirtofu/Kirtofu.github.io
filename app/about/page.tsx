@@ -4,7 +4,7 @@ import path from 'path';
 import matter from 'gray-matter';
 import { unified } from 'unified';
 import remarkParse from 'remark-parse';
-import remarkGfm from 'remark-gfm'; // 🌟 引入 GFM 以支持 ~~删除线~~
+import remarkGfm from 'remark-gfm'; //  引入 GFM 以支持 ~~删除线~~
 import remarkMath from 'remark-math';
 import remarkRehype from 'remark-rehype';
 import rehypeHighlight from 'rehype-highlight';
@@ -46,19 +46,19 @@ export default async function AboutPage() {
 
   try {
     const fileContents = fs.readFileSync(fullPath, 'utf8');
-    // 🌟 改为 let，以便进行文本预清洗
+    //  改为 let，以便进行文本预清洗
     let { data, content } = matter(fileContents);
     if (data.cover) coverImage = data.cover;
 
     // ==========================================
-    // 🌟 解析前物理清洗区
+    //  解析前物理清洗区
     // ==========================================
     // 1. 强行给没有语言标记的代码块加上 cpp 标签，防止侦测失败
     content = content.replace(/^```\s*$/gm, '```cpp');
     // 2. 强行修复数字列表缺少空格导致无法渲染为列表的 Bug (1.百度 -> 1. 百度)
     content = content.replace(/^(\s*\d+)\.([^ \n])/gm, '$1. $2');
 
-    // 3. 🌟 拯救被 Markdown 引擎吞噬的“连续空行” (同步前台展示页的阵法)
+    // 3.  拯救被 Markdown 引擎吞噬的“连续空行” (同步前台展示页的阵法)
     content = content.replace(/\r\n/g, '\n').replace(/^[ \t]+$/gm, '');
     const blocks = content.split(/(```[\s\S]*?```|~~~[\s\S]*?~~~)/g);
     content = blocks.map((block, index) => {
@@ -72,10 +72,10 @@ export default async function AboutPage() {
 
     const processedContent = await unified()
       .use(remarkParse)
-      .use(remarkGfm) // 🌟 挂载 GFM 解析
+      .use(remarkGfm) //  挂载 GFM 解析
       .use(remarkMath)
       .use(remarkRehype, { allowDangerousHtml: true })
-      // 🌟 核心修复：开启自动语言侦测，并限制语言白名单！
+      //  核心修复：开启自动语言侦测，并限制语言白名单！
       // @ts-ignore
       .use(rehypeHighlight, {
         detect: true,
@@ -105,7 +105,7 @@ export default async function AboutPage() {
       <PageTransition>
         <main className="w-[95%] md:w-[90%] max-w-4xl mx-auto mt-24 md:mt-28 relative z-10">
 
-          {/* 🌟 注入 About 页面专用的高颜值 Prose 全局样式 */}
+          {/*  注入 About 页面专用的高颜值 Prose 全局样式 */}
           <style dangerouslySetInnerHTML={{ __html: `
             .prose h1 { font-size: 1.8rem !important; font-weight: 900 !important; margin-bottom: 1.2rem !important; margin-top: 2rem !important; line-height: 1.3 !important; color: inherit !important; }
             .prose h2 { font-size: 1.5rem !important; font-weight: 800 !important; margin-bottom: 1rem !important; margin-top: 1.5rem !important; color: inherit !important; }
@@ -124,10 +124,10 @@ export default async function AboutPage() {
             .prose ul ul, .prose ol ul { list-style-type: circle !important; margin-top: 0.25rem !important; margin-bottom: 0.25rem !important; }
             .prose ol ol, .prose ul ol { list-style-type: lower-alpha !important; margin-top: 0.25rem !important; margin-bottom: 0.25rem !important; }
             
-            /* 🌟 删除线强制展现 */
+            /*  删除线强制展现 */
             .prose s, .prose del { text-decoration-line: line-through !important; opacity: 0.6; }
 
-            /* 🌟 引用块专属果冻极客风样式补丁 */
+            /*  引用块专属果冻极客风样式补丁 */
             .prose blockquote {
               border-left: 4px solid #6366f1 !important;
               background-color: rgba(99, 102, 241, 0.05) !important;
@@ -142,7 +142,7 @@ export default async function AboutPage() {
               margin: 0 !important; 
               color: inherit !important;
             }
-            /* 🌟 彻底杀掉 Tailwind Typography 生成的前后伪元素引号！ */
+            /*  彻底杀掉 Tailwind Typography 生成的前后伪元素引号！ */
             .prose blockquote p::before,
             .prose blockquote p::after {
               display: none !important;
@@ -155,7 +155,7 @@ export default async function AboutPage() {
               color: #94a3b8 !important;
             }
             
-            /* 🌟 果冻极客风代码字体：更圆滑、更饱满！大圆角拉满！ */
+            /*  果冻极客风代码字体：更圆滑、更饱满！大圆角拉满！ */
             .prose pre {
               background-color: #282c34 !important; color: #abb2bf !important;
               padding: 1rem !important; border-radius: 1.25rem !important;
@@ -185,12 +185,12 @@ export default async function AboutPage() {
             }
             .dark .prose p code, .dark .prose li code { background-color: rgba(99, 102, 241, 0.2) !important; color: #818cf8 !important; }
             
-            /* 🌟 确保前台生成的 <br> 占据真实的垂直空间 */
+            /*  确保前台生成的 <br> 占据真实的垂直空间 */
             .prose br { display: block !important; content: "" !important; margin-top: 0.5em !important; }
 
             .prose img { display: block !important; margin: 1.5rem auto !important; border-radius: 1rem !important; box-shadow: 0 10px 30px rgba(0,0,0,0.1) !important; max-width: 100% !important; height: auto !important; }
 
-            /* 🌟 Atom One Dark 顶级补丁 */
+            /*  Atom One Dark 顶级补丁 */
             .prose pre code .hljs-comment, .prose pre code .hljs-quote { color: #5c6370 !important; font-style: italic !important; }
             .prose pre code .hljs-doctag, .prose pre code .hljs-keyword, .prose pre code .hljs-formula { color: #c678dd !important; }
             .prose pre code .hljs-keyword.type_, .prose pre code .hljs-type { color: #c678dd !important; } 
@@ -217,7 +217,7 @@ export default async function AboutPage() {
           `}} />
 
           <Suspense fallback={<div className="h-96 flex items-center justify-center text-slate-500 font-bold animate-pulse">正在载入档案...</div>}>
-            {/* 🌟 组件原封不动，安全可靠 */}
+            {/*  组件原封不动，安全可靠 */}
             <AboutClient
               contentHtml={contentHtml}
               coverImage={coverImage}

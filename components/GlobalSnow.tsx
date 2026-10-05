@@ -32,7 +32,7 @@ export default function GlobalSnow() {
   }, []);
 
   const snowParticles = useMemo(() => {
-    const types = ["❄", "❅", "❆"];
+    const types = ["", "", ""];
     return Array.from({ length: 40 }).map(() => ({
       char: types[Math.floor(Math.random() * types.length)],
       size: Math.random() * 15 + 10,

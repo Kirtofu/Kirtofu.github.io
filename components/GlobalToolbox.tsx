@@ -10,8 +10,8 @@ import CalculatorTool from './toolbox/CalculatorTool';
 // 【核心架构：插件注册表】
 // 以后加新工具，只需要往这个数组里添加对象即可，完全解耦！
 const TOOL_REGISTRY = [
-  { id: 'calc', name: '计算器', icon: '🧮', component: <CalculatorTool /> },
-  // { id: 'tomato', name: '番茄钟', icon: '🍅', component: <TomatoClock /> },
+  { id: 'calc', name: '计算器', icon: '', component: <CalculatorTool /> },
+  // { id: 'tomato', name: '番茄钟', icon: '', component: <TomatoClock /> },
 ];
 
 export default function GlobalToolbox() {

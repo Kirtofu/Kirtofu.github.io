@@ -3,7 +3,7 @@ title: "你好，这里是 cormid"
 date: "2026-10-05 12:00:00"
 description: "一处收藏生活、学习和喜欢的事物的小小空间。"
 tags: ["小站日记"]
-cover: "/media/bb29272608a19420d584-poster.webp"
+cover: /media/0c15f8a8c9e270910e39-poster.webp
 ---
 
 # 欢迎来到我的小窝

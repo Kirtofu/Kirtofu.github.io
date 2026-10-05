@@ -3,17 +3,17 @@ import path from 'path';
 import matter from 'gray-matter';
 import Link from 'next/link';
 
-// 🌟 核心升级：引入 Next.js 现代统一解析流
+//  核心升级：引入 Next.js 现代统一解析流
 import { unified } from 'unified';
 import remarkParse from 'remark-parse';
-import remarkGfm from 'remark-gfm'; // 🌟 挂载 GFM 支持删除线
+import remarkGfm from 'remark-gfm'; //  挂载 GFM 支持删除线
 import remarkMath from 'remark-math';
 import remarkRehype from 'remark-rehype';
 import rehypeHighlight from 'rehype-highlight';
 import rehypeStringify from 'rehype-stringify';
 import rehypeKatex from 'rehype-katex';
 
-// 🌟 引入神仙代码高亮主题（Atom One Dark）
+//  引入神仙代码高亮主题（Atom One Dark）
 import 'highlight.js/styles/atom-one-dark.css';
 
 import Navbar from '../../../components/Navbar';
@@ -44,7 +44,7 @@ async function getChatterData(slug: string) {
   let { data, content } = matter(fileContents);
 
   // ==========================================
-  // 🌟 前台渲染清洗区：终极防吞换行 + 安全保护补丁！（从 Post 完美移植）
+  //  前台渲染清洗区：终极防吞换行 + 安全保护补丁！（从 Post 完美移植）
   // ==========================================
 
   // 1. 基础物理清洗：统一换行符，干掉幽灵占位符和纯空格废行
@@ -55,12 +55,12 @@ async function getChatterData(slug: string) {
   // 2. 强行修复数字列表缺少空格导致无法渲染为列表的 Bug (1.百度 -> 1. 百度)
   content = content.replace(/^(\s*\d+)\.([^ \n])/gm, '$1. $2');
 
-  // 3. 🌟 空间隔离防吞换行阵法（绝对不伤代码块！）
+  // 3.  空间隔离防吞换行阵法（绝对不伤代码块！）
   const blocks = content.split(/(```[\s\S]*?```|~~~[\s\S]*?~~~)/g);
   content = blocks.map((block, index) => {
     // 奇数索引是代码块
     if (index % 2 === 1) {
-      // 🌟 安全注入：如果代码块没写明语言，只在开头安全补上 cpp，绝不破坏结尾！
+      //  安全注入：如果代码块没写明语言，只在开头安全补上 cpp，绝不破坏结尾！
       if (/^```[ \t]*(\n|$)/.test(block)) {
          return block.replace(/^```[ \t]*/, '```cpp');
       }
@@ -164,7 +164,7 @@ export default async function ChatterDetail({ params }: { params: Promise<{ slug
                   {chatterData.title}
                 </h1>
 
-                {/* ✅ 前端展示版：特权修改按钮已彻底移除！ */}
+                {/*  前端展示版：特权修改按钮已彻底移除！ */}
 
                 <div className="flex flex-wrap items-center gap-2 md:gap-3">
                   <div className="flex items-center gap-1.5 md:gap-2 text-indigo-700 dark:text-indigo-400 font-bold bg-indigo-500/5 dark:bg-indigo-400/10 px-3 md:px-4 py-1.5 md:py-2 rounded-2xl text-xs md:text-sm border border-indigo-500/10">
@@ -174,7 +174,7 @@ export default async function ChatterDetail({ params }: { params: Promise<{ slug
 
                   {chatterData.mood && (
                     <div className="flex items-center gap-1.5 md:gap-2 text-pink-600 dark:text-pink-400 font-black bg-pink-500/5 dark:bg-pink-400/10 px-3 md:px-4 py-1.5 md:py-2 rounded-2xl text-xs md:text-sm border border-pink-500/10">
-                      ✨ 心情：{chatterData.mood}
+                       心情：{chatterData.mood}
                     </div>
                   )}
 
@@ -207,7 +207,7 @@ export default async function ChatterDetail({ params }: { params: Promise<{ slug
                   
                   .prose del { text-decoration-color: inherit !important; opacity: 0.6; }
 
-                  /* 🌟 引用块专属果冻极客风样式补丁 */
+                  /*  引用块专属果冻极客风样式补丁 */
                   .prose blockquote {
                     border-left: 4px solid #6366f1 !important;
                     background-color: rgba(99, 102, 241, 0.05) !important;

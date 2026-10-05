@@ -106,12 +106,12 @@ export default function CloudPlayer({ songIds }: { songIds: string[] }) {
         .then(text => {
           if (isMounted) {
             setLyrics(parseLrc(text));
-            setCurrentLyric("♪ 歌词加载完毕 ♪");
+            setCurrentLyric(" 歌词加载完毕 ");
           }
         })
-        .catch(() => { if (isMounted) setCurrentLyric("♪ 纯享音乐 ♪"); });
+        .catch(() => { if (isMounted) setCurrentLyric(" 纯享音乐 "); });
     } else {
-      setCurrentLyric("♪ 纯音乐，请欣赏 ♪");
+      setCurrentLyric(" 纯音乐，请欣赏 ");
     }
 
     if (isPlaying && audioRef.current) {

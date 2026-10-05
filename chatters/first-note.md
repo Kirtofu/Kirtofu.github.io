@@ -3,7 +3,7 @@ title: "收藏第一缕星光"
 date: "2026-10-05 12:05:00"
 description: "小站的第一条随笔，写给一个新的开始。"
 tags: ["日常"]
-cover: "/media/bb29272608a19420d584-poster.webp"
+cover: /media/d6f60da469ea4eebad27-poster.webp
 ---
 
 小窝搭好了。以后就在这里，慢慢记录喜欢的东西。

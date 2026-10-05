@@ -33,7 +33,7 @@ function parseLrc(lrcText: string) {
   return result.sort((a, b) => a.time - b.time);
 }
 
-// 🌟 1. 扩充 Context 类型，加入 MusicPage 需要的所有属性
+//  1. 扩充 Context 类型，加入 MusicPage 需要的所有属性
 type PlayMode = 'loop' | 'single' | 'random';
 
 interface MusicContextType {
@@ -73,7 +73,7 @@ export function MusicProvider({ children }: { children: ReactNode }) {
   const [currentLyric, setCurrentLyric] = useState("正在连接高可用神经云端...");
   const [isLoading, setIsLoading] = useState(true);
 
-  // 🌟 2. 新增音量和播放模式状态
+  //  2. 新增音量和播放模式状态
   const [volume, setVolumeState] = useState(1);
   const [isMuted, setIsMuted] = useState(false);
   const [playMode, setPlayMode] = useState<PlayMode>('loop');
@@ -120,7 +120,7 @@ export function MusicProvider({ children }: { children: ReactNode }) {
     let isMounted = true;
     const currentSong = playlist[currentIndex];
     setLyrics([]);
-    setCurrentLyric("♪ 正在缓冲 ♪");
+    setCurrentLyric(" 正在缓冲 ");
     if (currentSong.lyrics && currentSong.lyrics.length > 0) {
       if (isMounted) {
         setLyrics(currentSong.lyrics);
@@ -152,7 +152,7 @@ export function MusicProvider({ children }: { children: ReactNode }) {
     return () => { isMounted = false; };
   }, [currentIndex, playlist.length]); // 移除 playlist 依赖防止无限循环，只依赖长度
 
-  // 🌟 4. 同步音量到 audio 元素
+  //  4. 同步音量到 audio 元素
   useEffect(() => {
     if (audioRef.current) {
       audioRef.current.volume = isMuted ? 0 : volume;
@@ -167,7 +167,7 @@ export function MusicProvider({ children }: { children: ReactNode }) {
     }
   };
 
-  // 🌟 5. 重写 nextSong，加入对随机模式的处理
+  //  5. 重写 nextSong，加入对随机模式的处理
   const nextSong = () => {
     if (playMode === 'random') {
       setCurrentIndex(Math.floor(Math.random() * playlist.length));
@@ -184,7 +184,7 @@ export function MusicProvider({ children }: { children: ReactNode }) {
     }
   };
 
-  // 🌟 6. 暴露直接播放指定歌曲的方法
+  //  6. 暴露直接播放指定歌曲的方法
   const playSong = (index: number) => {
     setCurrentIndex(index);
     if (!isPlaying) setIsPlaying(true); // 保证切歌后自动播放
@@ -206,7 +206,7 @@ export function MusicProvider({ children }: { children: ReactNode }) {
     }
   };
 
-  // 🌟 7. 处理歌曲结束
+  //  7. 处理歌曲结束
   const handleEnded = () => {
     if (playMode === 'single' && audioRef.current) {
        audioRef.current.currentTime = 0;

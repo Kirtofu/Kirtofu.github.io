@@ -7,7 +7,7 @@ type TocItem = {
   id: string;
 };
 
-// 🌟 核心增幅：终极 Markdown 净化器！
+//  核心增幅：终极 Markdown 净化器！
 // 专门用来扒掉诸如 [链接名字](https://...) 的外壳，只留下 "链接名字"
 const cleanMarkdownHeading = (rawText: string) => {
   if (!rawText) return '';
@@ -23,7 +23,7 @@ const cleanMarkdownHeading = (rawText: string) => {
     .trim();
 };
 
-// 🌟 底层 ID 净化器
+//  底层 ID 净化器
 const getSafeId = (rawText: string) => {
   // 先把超链接外壳扒掉，得到纯文本
   const cleanText = cleanMarkdownHeading(rawText);
@@ -33,7 +33,7 @@ const getSafeId = (rawText: string) => {
     .toLowerCase();
 };
 
-// 🌟 侧边栏视觉净化器
+//  侧边栏视觉净化器
 const getDisplayText = (rawText: string) => {
   // 直接调用终极净化器，展示纯洁无瑕的标题名！
   return cleanMarkdownHeading(rawText);
@@ -48,7 +48,7 @@ export default function ClientTOC({ toc }: { toc: TocItem[] }) {
 
     const headings = Array.from(contentDiv.querySelectorAll('h1, h2, h3'));
 
-    // 🌟 强制统一正文 ID
+    //  强制统一正文 ID
     headings.forEach((heading) => {
       // heading.textContent 拿到的是渲染后的纯文字（已经没有超链接语法了）
       // 再过一遍 getSafeId，确保正文和侧边栏的 ID 100% 对齐！
@@ -80,7 +80,7 @@ export default function ClientTOC({ toc }: { toc: TocItem[] }) {
   }, [toc]);
 
   const scrollToHeading = (e: React.MouseEvent, id: string) => {
-    // 🌟 防止任何超链接的意外默认行为
+    //  防止任何超链接的意外默认行为
     e.preventDefault();
 
     const targetElement = document.getElementById(id);

@@ -10,7 +10,7 @@ export default function ProfileCard({ postCount, chatterCount, photoCount }: { p
 
   const copyToClipboard = (text: string, label: string) => {
     navigator.clipboard.writeText(text);
-    showToast(`✨ ${label}已复制到剪贴板: ${text}`, 'success');
+    showToast(` ${label}已复制到剪贴板: ${text}`, 'success');
   };
 
   return (
@@ -24,7 +24,7 @@ export default function ProfileCard({ postCount, chatterCount, photoCount }: { p
             <img src={siteConfig.avatarUrl} alt="avatar" className="w-full h-full rounded-lg md:rounded-xl object-cover bg-white" />
           </div>
           <div className="flex-1 min-w-0">
-            {/* 🌟 核心修复点：
+            {/*  核心修复点：
                 1. 增加了 pb-1 (padding-bottom) 给字母降部留空间
                 2. 增加了 leading-snug 确保行高不至于太扁
             */}

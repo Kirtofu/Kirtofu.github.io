@@ -1,5 +1,6 @@
 "use client";
 
+import {Sun,Moon} from 'lucide-react';
 import { useTheme } from './ThemeProvider';
 
 // 这里的 export default 非常关键！没有 default 就会报你那个错误
@@ -7,7 +8,7 @@ export default function ThemeToggleBlock() {
   const { isDark, toggleTheme } = useTheme();
 
   return (
-    <div
+    <button type="button" aria-label={isDark?'切换到日间模式':'切换到夜间模式'}
       onClick={toggleTheme}
       // 【核心修复】：移除了定高限制 (h-[180px] md:h-auto)，换成了统一的 h-full w-full
       className={`h-full w-full rounded-3xl backdrop-blur-md border shadow-xl p-6 flex flex-col justify-center items-center transition-all duration-500 hover:scale-[1.05] cursor-pointer group relative overflow-hidden
@@ -20,10 +21,10 @@ export default function ThemeToggleBlock() {
           <div className={`absolute inset-0 transition-transform duration-700 ${isDark ? 'translate-y-0' : 'translate-y-full'} bg-gradient-to-tr from-indigo-900 to-slate-800`}></div>
 
           <div className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 transition-all duration-700 ${isDark ? 'opacity-0 rotate-90 scale-50' : 'opacity-100 rotate-0 scale-100'} text-3xl drop-shadow-md`}>
-            🌸
+            <Sun size={30} aria-hidden="true" className="text-amber-700"/>
           </div>
           <div className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 transition-all duration-700 ${isDark ? 'opacity-100 rotate-0 scale-100' : 'opacity-0 -rotate-90 scale-50'} text-3xl drop-shadow-md`}>
-            ✨
+            <Moon size={28} aria-hidden="true" className="text-indigo-200"/>
           </div>
        </div>
        <div className="text-center z-10 mt-auto">
@@ -34,6 +35,6 @@ export default function ThemeToggleBlock() {
              {isDark ? '流萤飞舞的深空' : '落樱漫舞的清晨'}
            </p>
        </div>
-    </div>
+    </button>
   );
 }

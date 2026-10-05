@@ -86,7 +86,7 @@ export default function SearchBar({ posts = [] }: { posts: Post[] }) {
           spellCheck="false"
         />
 
-        {/* 🌟 核心修复：把放大镜放在 input 之后，并且加上 z-10 强制置顶！ */}
+        {/*  核心修复：把放大镜放在 input 之后，并且加上 z-10 强制置顶！ */}
         <div className="absolute inset-y-0 left-0 pl-5 flex items-center pointer-events-none select-none z-10">
           <svg
             xmlns="http://www.w3.org/2000/svg"
