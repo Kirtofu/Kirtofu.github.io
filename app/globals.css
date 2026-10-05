@@ -109,3 +109,5 @@ button:disabled { opacity:.5; cursor:not-allowed; }
 
 .cormid-cat-sprite{display:block;width:84px;height:84px;background:url('/siamese-cat.png') 0 0/300% 300% no-repeat;image-rendering:pixelated;animation:cormid-cat-idle 1.4s steps(1) infinite}
 @keyframes cormid-cat-idle{0%,33%{background-position:0 0}34%,66%{background-position:50% 0}67%,100%{background-position:100% 0}}
+
+:root { --font-serif: "Noto Serif SC Variable", "Noto Serif SC", serif; }

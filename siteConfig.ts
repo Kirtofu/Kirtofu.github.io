@@ -64,6 +64,6 @@ export const siteConfig = {
   "backgroundMode": "video",
   "bgVideoUrl": "/media/bb29272608a19420d584.mp4",
   "bgVideoPoster": "/media/bb29272608a19420d584-poster.webp",
-  "backgroundBlur": 3,
-  "backgroundOverlayOpacity": 35
+  "backgroundBlur": 3.0,
+  "backgroundOverlayOpacity": 35.0
 };

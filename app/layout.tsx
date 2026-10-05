@@ -1,6 +1,6 @@
 import 'katex/dist/katex.min.css';
 import type {Metadata} from 'next';
-import {Noto_Serif_SC} from 'next/font/google';
+import '@fontsource-variable/noto-serif-sc';
 import './globals.css';
 import {ThemeProvider} from '../components/ThemeProvider';
 import {WallpaperProvider} from '../components/WallpaperProvider';
@@ -10,10 +10,9 @@ import BackgroundEffects from '../components/BackgroundEffects';
 import CyberCat from '../components/CyberCat';
 import {siteConfig} from '../siteConfig';
 
-const serif=Noto_Serif_SC({subsets:['latin'],weight:['400','700','900'],variable:'--font-serif',display:'swap'});
 export const metadata:Metadata={metadataBase:new URL('https://kirtofu.github.io'),title:{default:siteConfig.title,template:'%s · cormid'},description:siteConfig.bio,icons:{icon:siteConfig.faviconUrl},openGraph:{title:siteConfig.title,description:siteConfig.bio,images:[siteConfig.defaultPostCover]}};
 export default function RootLayout({children}:{children:React.ReactNode}){
- return <html lang="zh-CN" className={`${serif.variable} dark`} suppressHydrationWarning><body className="min-h-screen font-serif bg-slate-950 text-slate-900 dark:text-slate-100">
+ return <html lang="zh-CN" className="dark" suppressHydrationWarning><body className="min-h-screen font-serif bg-slate-950 text-slate-900 dark:text-slate-100">
  <ThemeProvider><WallpaperProvider><ToastProvider>
  <div className="fixed inset-0 z-0 pointer-events-none overflow-hidden">
   <BackgroundSlider/>
