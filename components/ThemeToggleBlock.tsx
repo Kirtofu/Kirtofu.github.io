@@ -12,7 +12,7 @@ export default function ThemeToggleBlock() {
       onClick={toggleTheme}
       // 【核心修复】：移除了定高限制 (h-[180px] md:h-auto)，换成了统一的 h-full w-full
       className={`h-full w-full rounded-3xl backdrop-blur-md border shadow-xl p-6 flex flex-col justify-center items-center transition-all duration-500 hover:scale-[1.05] cursor-pointer group relative overflow-hidden
-        ${isDark ? 'bg-slate-800/40 border-slate-600/50' : 'bg-white/40 border-white/60'}
+        ${isDark ? 'bg-slate-800/85 border-slate-600/50' : 'bg-white/40 border-white/60'}
       `}
     >
        {/* 日夜交替动画图标 */}
@@ -31,7 +31,7 @@ export default function ThemeToggleBlock() {
            <h3 className={`text-xl font-bold transition-colors duration-500 ${isDark ? 'text-white' : 'text-slate-800'}`}>
              {isDark ? '夜间模式' : '日间模式'}
            </h3>
-           <p className={`text-sm font-medium mt-1 transition-colors duration-500 ${isDark ? 'text-slate-400' : 'text-slate-600'}`}>
+           <p className={`text-sm font-medium mt-1 transition-colors duration-500 ${isDark ? 'text-slate-200' : 'text-slate-600'}`}>
              {isDark ? '流萤飞舞的深空' : '落樱漫舞的清晨'}
            </p>
        </div>
